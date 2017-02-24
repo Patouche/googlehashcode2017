@@ -1,4 +1,9 @@
-package fr.tcd;
+package fr.tcd.input;
+
+import fr.tcd.Cache;
+import fr.tcd.Endpoint;
+import fr.tcd.Request;
+import fr.tcd.Video;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +63,22 @@ public class InputData {
 
     public int getCacheSize() {
         return cacheSize;
+    }
+
+    public List<Video> getVideos() {
+        return videos;
+    }
+
+    public List<Endpoint> getEndpoints() {
+        return endpoints;
+    }
+
+    public List<Request> getRequests() {
+        return requests;
+    }
+
+    public List<Cache> getCaches() {
+        return caches;
     }
 
     @Override

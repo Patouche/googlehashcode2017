@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class ResultWriter {
+
     public static void write(String dataset, List<Cache> cacheServers) throws IOException {
         Collection<String> lines = new ArrayList<>();
 

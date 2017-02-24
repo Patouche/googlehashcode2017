@@ -13,8 +13,11 @@ public class Cache {
 
     public final Map<Endpoint, Integer> endpoints = new HashMap<>();
 
-    public Cache(int id) {
+    private final int cacheSize;
+
+    public Cache(int id, int cacheSize) {
         this.id = id;
+        this.cacheSize = cacheSize;
     }
 
     public void addEnPoint(Endpoint endpoint, int latency) {
@@ -25,4 +28,11 @@ public class Cache {
         return cacheSize - videos.stream().mapToInt(video -> video.weight).sum();
     }
 
+    public int getAvailableSpace() {
+        return cacheSize - videos.stream().mapToInt(video -> video.weight).sum();
+    }
+
+    public boolean hasAvailableSpace() {
+        return getAvailableSpace() > 0;
+    }
 }
