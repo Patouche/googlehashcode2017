@@ -60,21 +60,23 @@ public class InputReader {
             for (int i = 0; i < numberConnectedCaches; i++) {
                 final int cacheId = in.nextInt();
                 final int cacheLatency = in.nextInt();
-                System.out.println("cacheId: " + cacheId);
-                System.out.println("cacheLatency: " + cacheLatency);
+//                System.out.println("cacheId: " + cacheId);
+//                System.out.println("cacheLatency: " + cacheLatency);
                 caches.stream()
                         .filter((c) -> c.id == cacheId)
                         .findFirst()
                         .orElseThrow(() -> new RuntimeException("Cache with id " + cacheId + " not found"))
                         .addEnPoint(endpoint, cacheLatency);
             }
-
+            System.out.printf("Creating endpoint : %s \n", endpoint);
             endpoints.add(endpoint);
         }
 
         final List<Request> requests = new ArrayList<>();
         for (int requestId = 0; requestId < nbRequestDescriptions; requestId++) {
-            System.out.println("requestId: " + requestId + "/" + nbRequestDescriptions);
+            if (requestId % 100 == 0) {
+                System.out.println("requestId: " + requestId + "/" + nbRequestDescriptions);
+            }
 
             int videoId = in.nextInt();
             int endpointId = in.nextInt();
@@ -91,7 +93,6 @@ public class InputReader {
                     .orElseThrow(() -> new RuntimeException("Endpoint with id " + endpointId + " not found"));
             final Request request = new Request(requestId, video, endpoint, nbRequest);
             requests.add(request);
-
         }
 
         System.out.println("initData END");

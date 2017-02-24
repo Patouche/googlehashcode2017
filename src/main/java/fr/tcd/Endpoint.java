@@ -50,4 +50,13 @@ public class Endpoint {
         this.numberConnectedCaches = numberConnectedCaches;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Endpoint{" +
+                "id=" + id +
+                ", datacenterLatency=" + datacenterLatency +
+                ", numberConnectedCaches=" + numberConnectedCaches +
+                '}';
+    }
 }

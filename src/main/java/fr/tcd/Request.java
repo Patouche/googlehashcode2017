@@ -50,8 +50,4 @@ public class Request {
         return this;
     }
 
-    public int getKnapsackWeigtht() {
-        return nbRequest * video.weight;
-    }
-
 }
