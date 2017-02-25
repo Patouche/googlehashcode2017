@@ -32,7 +32,8 @@ public class PaallAlgorithm implements Algorithm {
         this.inputData.endpoints.stream()
                 // Les endpoints connectés à un maximum de cache en premier
                 // Mais ça devrait plutôt être ceux recevant le plus de requêtes importantes il me semble
-                .sorted(Comparator.<Endpoint>comparingInt(e -> e.numberConnectedCaches))
+                // Mais ça entraine de récuper les requêtes pour chaque endpoints
+                .sorted(Comparator.<Endpoint>comparingInt(e -> e.datacenterLatency * e.datacenterLatency))
                 .forEach((endpoint -> {
 
                     System.out.printf("[%d/%d] Compute endpoint: %d \n", counter.getAndIncrement(), inputData.nbEndpoints, endpoint.id);

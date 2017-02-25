@@ -1,7 +1,6 @@
 package fr.tcd.compute;
 
 import fr.tcd.Cache;
-import fr.tcd.CacheEnpointCouple;
 import fr.tcd.Endpoint;
 import fr.tcd.Request;
 import fr.tcd.input.InputData;

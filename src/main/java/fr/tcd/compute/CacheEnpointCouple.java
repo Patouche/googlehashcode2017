@@ -1,4 +1,7 @@
-package fr.tcd;
+package fr.tcd.compute;
+
+import fr.tcd.Cache;
+import fr.tcd.Endpoint;
 
 /**
  * Created by marob on 23/02/17.

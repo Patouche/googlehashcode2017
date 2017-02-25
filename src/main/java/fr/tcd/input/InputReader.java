@@ -74,8 +74,8 @@ public class InputReader {
 
         final List<Request> requests = new ArrayList<>();
         for (int requestId = 0; requestId < nbRequestDescriptions; requestId++) {
-            if (requestId % 100 == 0) {
-                System.out.println("requestId: " + requestId + "/" + nbRequestDescriptions);
+            if (requestId % (nbRequestDescriptions / 10) == 0) {
+                System.out.println("Creating request: " + requestId + "/" + nbRequestDescriptions);
             }
 
             int videoId = in.nextInt();
