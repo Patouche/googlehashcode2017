@@ -24,7 +24,6 @@ public class InputReader {
     }
 
     public InputData read() {
-        System.out.println("initData");
 
         final Scanner in = new Scanner(ClassLoader.getSystemResourceAsStream(input.getFilename()));
         final int nbVideos = in.nextInt();
@@ -68,15 +67,15 @@ public class InputReader {
                         .orElseThrow(() -> new RuntimeException("Cache with id " + cacheId + " not found"))
                         .addEnPoint(endpoint, cacheLatency);
             }
-            System.out.printf("Creating endpoint : %s \n", endpoint);
+//            System.out.printf("Creating endpoint : %s \n", endpoint);
             endpoints.add(endpoint);
         }
 
         final List<Request> requests = new ArrayList<>();
         for (int requestId = 0; requestId < nbRequestDescriptions; requestId++) {
-            if (requestId % 100 == 0) {
-                System.out.println("requestId: " + requestId + "/" + nbRequestDescriptions);
-            }
+//            if (requestId % 100 == 0) {
+//                System.out.println("requestId: " + requestId + "/" + nbRequestDescriptions);
+//            }
 
             int videoId = in.nextInt();
             int endpointId = in.nextInt();
@@ -95,7 +94,6 @@ public class InputReader {
             requests.add(request);
         }
 
-        System.out.println("initData END");
         return new InputData(
                 nbVideos,
                 nbEndpoints,
